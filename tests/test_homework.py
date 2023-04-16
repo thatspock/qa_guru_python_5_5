@@ -39,7 +39,11 @@ def test_homework():
     browser.element('#state #react-select-3-input').type('NCR').press_enter()
     browser.element('#city #react-select-4-input').type('Delhi').press_enter()
 
-    browser.element('#submit').click()
+    # нажать на кнопку с помощью JavaScript если ее не видно на экране
+    browser.execute_script('document.getElementById("submit").click()')
+
+    # Обычный клик
+    # browser.element('#submit').should(be.visible).click()
 
     browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
 
