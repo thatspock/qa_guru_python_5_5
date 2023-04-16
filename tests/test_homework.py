@@ -10,7 +10,7 @@ def test_homework():
 
     # просто click() почему-то не работает с этой радио кнопкой. только double
     browser.element('#gender-radio-1').should(have.attribute('value', 'Male')).double_click()
-    browser.element('#userNumber').type('18006665533')
+    browser.element('#userNumber').type('1800666553')
 
     browser.element('#dateOfBirthInput').click()
     browser.element('option[value="4"]').click()
@@ -46,5 +46,11 @@ def test_homework():
     # browser.element('#submit').should(be.visible).click()
 
     browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
+
+    # проверка всех полей
+    browser.all('tbody tr').should(
+        have.exact_texts('Student Name Mr Spock', 'Student Email mrspock@enterprise.com', 'Gender Male',
+                         'Mobile 1800666553', 'Date of Birth 13 May,1985', 'Subjects English', 'Hobbies Sports',
+                         'Picture test.jpg', 'Address Enterprise (NCC-1701)', 'State and City NCR Delhi'))
 
     browser.element('#closeLargeModal').click()
