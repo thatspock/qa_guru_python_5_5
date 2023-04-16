@@ -1,5 +1,3 @@
-import time
-
 from selene import browser, have, be
 
 
@@ -42,3 +40,7 @@ def test_homework():
     browser.element('#city #react-select-4-input').type('Delhi').press_enter()
 
     browser.element('#submit').click()
+
+    browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
+
+    browser.element('#closeLargeModal').click()
