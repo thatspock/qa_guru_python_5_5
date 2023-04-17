@@ -1,8 +1,9 @@
 from selene import browser, have, be
+import os
 
 
 def test_homework():
-    browser.open('/')
+    browser.open('/automation-practice-form')
 
     browser.element('#firstName').type('Mr')
     browser.element('#lastName').type('Spock')
@@ -30,7 +31,8 @@ def test_homework():
 
     browser.element('label[for="hobbies-checkbox-1"]').click()
 
-    browser.element('#uploadPicture').send_keys('/Users/r/Desktop/test.jpg')
+    # загрузка файла который находится в корне папке проекта
+    browser.element('#uploadPicture').send_keys(os.path.join(os.path.dirname(__file__), 'test.jpg'))
 
     browser.element('#currentAddress').type('Enterprise (NCC-1701)')
 
