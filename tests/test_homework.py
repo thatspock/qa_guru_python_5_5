@@ -31,7 +31,7 @@ def test_homework():
 
     browser.element('label[for="hobbies-checkbox-1"]').click()
 
-    # загрузка файла который находится в корне папке проекта
+    # загрузка файла который находится в корне проекта
     browser.element('#uploadPicture').send_keys(os.path.join(os.path.dirname(__file__), 'test.jpg'))
 
     browser.element('#currentAddress').type('Enterprise (NCC-1701)')
