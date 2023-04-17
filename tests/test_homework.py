@@ -5,12 +5,15 @@ import os
 def test_homework():
     browser.open('/automation-practice-form')
 
+    # WHEN
     browser.element('#firstName').type('Mr')
     browser.element('#lastName').type('Spock')
     browser.element('#userEmail').type('mrspock@enterprise.com')
 
     # просто click() почему-то не работает с этой радио кнопкой. только double
-    browser.element('#gender-radio-1').should(have.attribute('value', 'Male')).double_click()
+    # browser.element('#gender-radio-1').should(have.attribute('value', 'Male')).double_click()
+    browser.element('[name=gender][value=Male]').double_click()
+
     browser.element('#userNumber').type('1800666553')
 
     browser.element('#dateOfBirthInput').click()
@@ -47,7 +50,7 @@ def test_homework():
 
     browser.element('#example-modal-sizes-title-lg').should(have.text('Thanks for submitting the form'))
 
-    # проверка всех полей
+    # THEN
     browser.all('tbody tr').should(
         have.exact_texts('Student Name Mr Spock', 'Student Email mrspock@enterprise.com', 'Gender Male',
                          'Mobile 1800666553', 'Date of Birth 13 May,1985', 'Subjects English', 'Hobbies Sports',
