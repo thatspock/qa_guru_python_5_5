@@ -36,8 +36,6 @@ def test_homework():
 
     browser.element('#currentAddress').type('Enterprise (NCC-1701)')
 
-    browser.execute_script('window.scrollTo(0, document.body.scrollHeight);')
-
     browser.element('#state #react-select-3-input').type('NCR').press_enter()
     browser.element('#city #react-select-4-input').type('Delhi').press_enter()
 
