@@ -9,11 +9,7 @@ def test_homework():
     browser.element('#firstName').type('Mr')
     browser.element('#lastName').type('Spock')
     browser.element('#userEmail').type('mrspock@enterprise.com')
-
-    # просто click() почему-то не работает с этой радио кнопкой. только double
-    # browser.element('#gender-radio-1').should(have.attribute('value', 'Male')).double_click()
-    browser.element('[name=gender][value=Male]').double_click()
-
+    browser.all('.custom-control-label').element_by(have.text('Male')).click()
     browser.element('#userNumber').type('1800666553')
 
     browser.element('#dateOfBirthInput').click()
@@ -23,7 +19,6 @@ def test_homework():
         have.attribute('aria-label', 'Choose Monday, May 13th, 1985')).click()
 
     # Вариант ввода даты через execute_script
-
     '''
     browser.element('#dateOfBirthInput').click()
     browser.execute_script('document.getElementById("dateOfBirthInput").value = ""')
@@ -31,7 +26,6 @@ def test_homework():
     '''
 
     browser.element('#subjectsInput').type('English').press_enter()
-
     browser.element('label[for="hobbies-checkbox-1"]').click()
 
     # загрузка файла который находится в корне проекта
