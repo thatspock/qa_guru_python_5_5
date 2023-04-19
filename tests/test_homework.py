@@ -26,7 +26,8 @@ def test_homework():
     '''
 
     browser.element('#subjectsInput').type('English').press_enter()
-    browser.element('label[for="hobbies-checkbox-1"]').click()
+    # browser.element('label[for="hobbies-checkbox-1"]').click()
+    browser.all('.custom-control-label').element_by(have.exact_text('Sports')).click()
 
     # загрузка файла который находится в корне проекта
     browser.element('#uploadPicture').send_keys(os.path.abspath('../resourсes/test.jpg'))
